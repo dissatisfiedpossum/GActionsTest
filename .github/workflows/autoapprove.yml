@@ -1,0 +1,15 @@
+name: Automatic Approve
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+jobs:
+  automatic-approve:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Automatic Approve
+        uses: mheap/automatic-approve-action@v1.1.0
+        with:
+          token: ${{ secrets.TOKEN }}
+          workflows: "ActionsOnPR.yml,autoapprove.yml,test_report.yml"
+          dangerous_files: ".github/test02"
