@@ -21,11 +21,11 @@ jobs:
       - name: Setup NuGet.exe for use with actions
         uses: NuGet/setup-nuget@v1.0.5
         
-      - name: Create dir for sln
+      - name: Create sln
         working-directory: ./myNewFolder
         run: dotnet new sln --name t
           
-      - name: Create sln
+      - name: Add csproj
         run: |
           dotnet sln ./myNewFolder/t.sln add **/TestConsoleApp.csproj
           dotnet add XUnitTestProject1.csproj reference **/TestConsoleApp.csproj
